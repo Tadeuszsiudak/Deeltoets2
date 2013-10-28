@@ -60,28 +60,7 @@ var frisbeeApp = frisbeeApp || {};
 			// Initialize router
 			frisbeeApp.router.init();
 		}
-	};
-	
-	// Router
-	frisbeeApp.router = {
-		init: function () {
-	  		routie({
-			    '/schedule': function() {
-			    	frisbeeApp.page.schedule();
-				},
-			    '/game/': function(game_id) {
-			    	frisbeeApp.page.game();
-			    },
-
-			    '/ranking': function() {
-			    	frisbeeApp.page.ranking();
-			    },
-		
-			    '*': function() {
-			    	frisbeeApp.page.game();
-			    }
-			});
-			 var type='POST',
+		 var type='POST',
                  url='https://api.leaguevine.com/v1/game_scores/',
                  postData= JSON.stringify({
                  	"game_id": "127236",
@@ -103,6 +82,29 @@ var frisbeeApp = frisbeeApp || {};
                         // Send request (with data as a json string)
                         xhr.send(postData);
 		},
+		
+	};
+	
+	// Router
+	frisbeeApp.router = {
+		init: function () {
+	  		routie({
+			    '/schedule': function() {
+			    	frisbeeApp.page.schedule();
+				},
+			    '/game/': function(game_id) {
+			    	frisbeeApp.page.game();
+			    },
+
+			    '/ranking': function() {
+			    	frisbeeApp.page.ranking();
+			    },
+		
+			    '*': function() {
+			    	frisbeeApp.page.game();
+			    }
+			});
+
 
 		change: function () {
             var route = window.location.hash.slice(2),
